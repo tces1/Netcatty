@@ -46,6 +46,10 @@ const storySpec: FigSpec = {
       name: "open",
       args: { template: "filepaths" },
     },
+    {
+      name: "pick",
+      args: { name: "item", generators: {} },
+    },
   ],
 };
 const bridgeState: { localEntries: MockDirEntry[] } = {
@@ -101,4 +105,19 @@ test("getCompletions prioritizes spec-driven path suggestions over history", asy
     entry.source === "history" && entry.text === "story open package-lock.json"
   );
   assert.ok(historyIndex > 0);
+});
+
+test("getCompletions does not treat generator-only spec args as path contexts", async () => {
+  recordCommand("story pick package-choice", "host-1");
+
+  const completions = await getCompletions("story pick pa", {
+    hostId: "host-1",
+    protocol: "local",
+    cwd: "/repo",
+  });
+
+  assert.ok(completions.length > 0);
+  assert.equal(completions[0]?.source, "history");
+  assert.equal(completions[0]?.text, "story pick package-choice");
+  assert.equal(completions.some((entry) => entry.source === "path"), false);
 });
