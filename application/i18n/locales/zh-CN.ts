@@ -562,6 +562,9 @@ const zhCN: Messages = {
   'sftp.transfers.collapseChildren': '收起文件',
   'sftp.transfers.expandChildList': '展开详情',
   'sftp.transfers.collapseChildList': '收起',
+  'sftp.transfers.retryAction': '重试',
+  'sftp.transfers.dismissAction': '移除',
+  'sftp.transfers.resizeNameColumn': '调整文件名列宽',
   'sftp.transfers.dragToResize': '拖拽调整高度',
   'sftp.goUp': '上一级',
   'sftp.goToTerminalCwd': '定位到终端当前目录',
@@ -1214,8 +1217,11 @@ const zhCN: Messages = {
   'sftp.conflict.size': '大小：',
   'sftp.conflict.modified': '修改时间：',
   'sftp.conflict.applyToAll': '将此操作应用到剩余的 {count} 个冲突',
+  'sftp.conflict.action.stop': '停止',
   'sftp.conflict.action.skip': '跳过',
   'sftp.conflict.action.keepBoth': '保留两者',
+  'sftp.conflict.action.duplicate': '创建副本',
+  'sftp.conflict.action.merge': '合并',
   'sftp.conflict.action.replace': '替换',
 
   // SFTP Upload Phases
